@@ -1,0 +1,17 @@
+services:
+  rlcraft:
+    container_name: rlcraft
+    build:
+      context: .
+      dockerfile: ./Dockerfile.app
+    ports:
+      - "25565:25565"
+    networks:
+      - rlcraft-network
+    volumes:
+      - ./World:/app/World
+
+networks:
+  rlcraft-network:
+    name: 'rlcraft-network'
+    driver: bridge
